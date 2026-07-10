@@ -1,0 +1,6 @@
+Cluster,Size,Avg_Age,Avg_Income,Avg_Spending,Segment Label,% of Customers
+0,81,42.7,55.3,49.5,Standard / Average,40.5
+1,39,32.7,86.5,82.1,High-Value Target,19.5
+2,22,25.3,25.7,79.4,Impulsive Spenders,11.0
+3,35,41.1,88.2,17.1,Sensible / Frugal Affluent,17.5
+4,23,45.2,26.3,20.9,Careful / Budget-Conscious,11.5
