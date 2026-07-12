@@ -1,6 +1,5 @@
 # Week 1 — Data Cleaning and Visualization
 
-**Intern:** Mahi Savani (24AIML059)
 **Project Title:** Data Cleaning and Visualization using various datasets
 
 ##  Overview
