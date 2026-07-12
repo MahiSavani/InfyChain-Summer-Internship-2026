@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - SpineDetect AI Prediction Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Learn about our AI-powered kyphosis prediction tool, its technology stack, model performance, and limitations.">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">SpineDetect AI</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="predict.html">Predict</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>About This Project</h1>
+            <p>Understanding the technology and methodology behind our AI prediction tool</p>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="card">
+            <h2>Project Overview</h2>
+            <p>
+                This application demonstrates the application of machine learning in healthcare by predicting 
+                the likelihood of kyphosis development following spinal surgery. Built as an educational tool, 
+                it showcases how artificial intelligence can assist in medical risk assessment while emphasizing 
+                the importance of professional medical judgment.
+            </p>
+            <p>
+                The project serves as a portfolio demonstration of full-stack development skills, combining 
+                modern web technologies with machine learning to create an intuitive, responsive interface 
+                for exploring medical AI applications.
+            </p>
+        </section>
+
+        <!-- How It Works -->
+        <section class="card">
+            <h2>How It Works</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">📊</div>
+                    <h3>1. Data Collection</h3>
+                    <p>Historical surgical data containing patient age, vertebrae count, surgery location, and outcomes</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">🧠</div>
+                    <h3>2. Model Training</h3>
+                    <p>Decision Tree algorithm learns patterns from surgical parameters to predict kyphosis risk</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">🔌</div>
+                    <h3>3. API Integration</h3>
+                    <p>FastAPI backend serves the trained model with RESTful endpoints for predictions</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">💻</div>
+                    <h3>4. User Interface</h3>
+                    <p>Responsive web frontend allows interactive exploration of the prediction model</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="card">
+            <h2>Technology Stack</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Backend Technologies</h3>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-icon">🐍</div>
+                            <h4>Python</h4>
+                            <p>Core programming language for data processing and machine learning</p>
+                        </div>
+                        
+                        <div class="tech-card">
+                            <div class="tech-icon">⚡</div>
+                            <h4>FastAPI</h4>
+                            <p>Modern web framework for building high-performance APIs with automatic documentation</p>
+                        </div>
+                        
+                        <div class="tech-card">
+                            <div class="tech-icon">🔬</div>
+                            <h4>scikit-learn</h4>
+                            <p>Machine learning library providing the Decision Tree classification algorithm</p>
+                        </div>
+                        
+                        <div class="tech-card">
+                            <div class="tech-icon">🐼</div>
+                            <h4>pandas</h4>
+                            <p>Data manipulation and analysis library for handling the medical dataset</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Frontend Technologies</h3>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-icon">📄</div>
+                            <h4>HTML5</h4>
+                            <p>Semantic markup for accessible and structured content presentation</p>
+                        </div>
+                        
+                        <div class="tech-card">
+                            <div class="tech-icon">🎨</div>
+                            <h4>CSS3</h4>
+                            <p>Modern styling with gradients, animations, and responsive design principles</p>
+                        </div>
+                        
+                        <div class="tech-card">
+                            <div class="tech-icon">⚙️</div>
+                            <h4>JavaScript</h4>
+                            <p>Vanilla JavaScript for dynamic interactions and API communication</p>
+                        </div>
+                        
+                        <div class="tech-card">
+                            <div class="tech-icon">📱</div>
+                            <h4>Responsive Design</h4>
+                            <p>Mobile-first approach ensuring optimal experience across all devices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model Performance -->
+        <section class="card">
+            <h2>Model Performance Metrics</h2>
+            <div id="metrics-loading" style="text-align: center; padding: 2rem;">
+                <span class="loading-spinner"></span>
+                <p style="color: #ccc; margin-top: 1rem;">Loading model performance data...</p>
+            </div>
+            
+            <div id="metrics-content" style="display: none;">
+                <p style="color: #ccc; margin-bottom: 2rem;">
+                    Our Decision Tree model was evaluated on a held-out test set representing 20% of the available data. 
+                    Below are the key performance metrics:
+                </p>
+                
+                <table class="metrics-table" id="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="metrics-tbody">
+                        <!-- Metrics will be populated by JavaScript -->
+                    </tbody>
+                </table>
+                
+                <div class="two-column" style="margin-top: 2rem;">
+                    <div>
+                        <h3>Understanding the Metrics</h3>
+                        <ul>
+                            <li><strong>Accuracy:</strong> Percentage of correct predictions overall</li>
+                            <li><strong>Precision:</strong> Of all "present" predictions, how many were actually correct</li>
+                            <li><strong>Recall:</strong> Of all actual "present" cases, how many were correctly identified</li>
+                            <li><strong>F1-Score:</strong> Harmonic mean of precision and recall, balancing both metrics</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3>Model Characteristics</h3>
+                        <ul>
+                            <li><strong>Algorithm:</strong> Decision Tree Classifier</li>
+                            <li><strong>Features:</strong> Age, vertebrae count, surgery start level</li>
+                            <li><strong>Training Size:</strong> ~2,400 patient records</li>
+                            <li><strong>Validation:</strong> Stratified train-test split (80/20)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="metrics-error" style="display: none;">
+                <!-- Error message will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Dataset Information -->
+        <section class="card">
+            <h2>Dataset & Training</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Data Characteristics</h3>
+                    <ul>
+                        <li><strong>Size:</strong> 3,000+ patient records</li>
+                        <li><strong>Features:</strong> 3 numerical inputs (age, vertebrae count, start level)</li>
+                        <li><strong>Target:</strong> Binary classification (present/absent)</li>
+                        <li><strong>Balance:</strong> ~77% absent, ~23% present cases</li>
+                        <li><strong>Source:</strong> Synthetic data based on real clinical patterns</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Training Process</h3>
+                    <ul>
+                        <li><strong>Preprocessing:</strong> Data validation and encoding</li>
+                        <li><strong>Split:</strong> 80% training, 20% testing with stratification</li>
+                        <li><strong>Algorithm:</strong> Decision Tree with hyperparameter tuning</li>
+                        <li><strong>Validation:</strong> Cross-validation for robust performance estimation</li>
+                        <li><strong>Metrics:</strong> Comprehensive evaluation across multiple measures</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Limitations & Disclaimer -->
+        <section class="card">
+            <h2>Limitations & Important Considerations</h2>
+            <div class="disclaimer">
+                <h3>Critical Limitations</h3>
+                <ul style="margin: 1rem 0; color: #e2e8f0;">
+                    <li><strong>Educational Purpose Only:</strong> This tool is designed for learning and demonstration, not clinical use</li>
+                    <li><strong>Synthetic Data:</strong> While based on real patterns, the training data is artificially generated</li>
+                    <li><strong>Limited Scope:</strong> Model only considers 3 variables; real medical decisions involve many more factors</li>
+                    <li><strong>No Real-Time Updates:</strong> Model is static and doesn't learn from new cases</li>
+                    <li><strong>Population Bias:</strong> May not generalize to all patient populations or surgical techniques</li>
+                </ul>
+            </div>
+            
+            <h3>Professional Medical Guidance Required</h3>
+            <p>
+                Real medical decisions must always incorporate clinical expertise, patient history, imaging studies, 
+                physical examination findings, and current best practices. This tool cannot and should not replace 
+                the comprehensive assessment provided by qualified healthcare professionals.
+            </p>
+            
+            <h3>Ethical Considerations</h3>
+            <p>
+                AI in healthcare must be developed and deployed responsibly, with transparency about limitations, 
+                potential biases, and appropriate use cases. This project serves as an example of how to build 
+                educational tools while maintaining clear boundaries about their intended applications.
+            </p>
+        </section>
+
+        <!-- Future Development -->
+        <section class="card">
+            <h2>Future Enhancements</h2>
+            <div class="three-column">
+                <div class="tech-card">
+                    <div class="tech-icon">📈</div>
+                    <h3>Model Improvements</h3>
+                    <p>Ensemble methods, feature engineering, and hyperparameter optimization</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">🔍</div>
+                    <h3>Additional Features</h3>
+                    <p>Incorporate more clinical variables like BMI, bone density, and surgical approach</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">📊</div>
+                    <h3>Visualization</h3>
+                    <p>Interactive charts showing decision boundaries and feature importance</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Links -->
+        <section class="card" style="text-align: center; background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); border-color: #3b82f6;">
+            <h2>Learn More</h2>
+            <p>
+                Interested in the technical implementation or want to explore the code? 
+                This project demonstrates modern web development practices combined with machine learning applications.
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="predict.html" class="btn btn-large" style="margin: 0.5rem;">Try the Tool</a>
+                <a href="index.html" class="btn btn-secondary btn-large" style="margin: 0.5rem;">Learn About Kyphosis</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Error Container -->
+    <div id="error-container" style="display: none;"></div>
+    <div id="network-error" style="display: none;"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Page-specific JavaScript for About page
+        function initAboutPage() {
+            loadModelMetrics();
+            console.log('About page initialized');
+        }
+
+        async function loadModelMetrics() {
+            const loadingDiv = document.getElementById('metrics-loading');
+            const contentDiv = document.getElementById('metrics-content');
+            const errorDiv = document.getElementById('metrics-error');
+            
+            try {
+                const metrics = await fetchModelMetrics();
+                
+                // Hide loading, show content
+                loadingDiv.style.display = 'none';
+                contentDiv.style.display = 'block';
+                errorDiv.style.display = 'none';
+                
+                // Populate metrics table
+                populateMetricsTable(metrics);
+                
+            } catch (error) {
+                console.error('Failed to load metrics:', error);
+                
+                // Hide loading, show error
+                loadingDiv.style.display = 'none';
+                contentDiv.style.display = 'none';
+                errorDiv.style.display = 'block';
+                errorDiv.innerHTML = `
+                    <div class="card" style="border-color: #ef4444; background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);">
+                        <h3 style="color: #fca5a5;">Unable to Load Metrics</h3>
+                        <p style="color: #fecaca;">${error.message}</p>
+                        <button onclick="loadModelMetrics()" class="btn btn-secondary" style="margin-top: 1rem;">
+                            Try Again
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function populateMetricsTable(metrics) {
+            const tbody = document.getElementById('metrics-tbody');
+            
+            const metricsData = [
+                {
+                    name: 'Accuracy',
+                    value: (metrics.accuracy * 100).toFixed(1) + '%',
+                    description: 'Overall percentage of correct predictions'
+                },
+                {
+                    name: 'Precision',
+                    value: (metrics.precision * 100).toFixed(1) + '%',
+                    description: 'Accuracy of positive predictions (when model says "present")'
+                },
+                {
+                    name: 'Recall',
+                    value: (metrics.recall * 100).toFixed(1) + '%',
+                    description: 'Percentage of actual positive cases correctly identified'
+                },
+                {
+                    name: 'F1-Score',
+                    value: (metrics.f1_score * 100).toFixed(1) + '%',
+                    description: 'Balanced measure combining precision and recall'
+                }
+            ];
+            
+            tbody.innerHTML = metricsData.map(metric => `
+                <tr>
+                    <td style="font-weight: 600; color: #87ceeb;">${metric.name}</td>
+                    <td style="font-weight: 600;">${metric.value}</td>
+                    <td>${metric.description}</td>
+                </tr>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
