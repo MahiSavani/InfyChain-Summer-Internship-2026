@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spine Risk Prediction - AI Medical Assessment</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Use our AI-powered tool to predict kyphosis risk based on surgical parameters for educational purposes.">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">SpineDetect AI</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="predict.html">Predict</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Spine Risk Prediction Tool</h1>
+            <p>Enter surgical parameters to get an AI-powered spinal risk assessment</p>
+        </section>
+
+        <!-- Prediction Form -->
+        <section class="card">
+            <h2>Patient Data Input</h2>
+            <p style="color: #ccc; margin-bottom: 2rem;">
+                This tool analyzes surgical parameters to predict the likelihood of post-operative kyphosis development.
+                All fields are required for accurate prediction.
+            </p>
+
+            <form id="prediction-form">
+                <div class="form-group">
+                    <label for="age">Patient Age (months)</label>
+                    <input 
+                        type="number" 
+                        id="age" 
+                        name="age" 
+                        required 
+                        min="1" 
+                        max="250"
+                        placeholder="e.g., 120"
+                    >
+                    <small>Enter the patient's age in months (1-250). For reference: 12 months = 1 year, 120 months = 10 years.</small>
+                    <div class="error-message" id="age-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="number">Number of Vertebrae Involved</label>
+                    <input 
+                        type="number" 
+                        id="number" 
+                        name="number" 
+                        required 
+                        min="1" 
+                        max="20"
+                        placeholder="e.g., 5"
+                    >
+                    <small>Total number of vertebrae involved in the surgical procedure (1-20). More vertebrae typically indicate more extensive surgery.</small>
+                    <div class="error-message" id="number-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="start">Starting Vertebra Level</label>
+                    <input 
+                        type="number" 
+                        id="start" 
+                        name="start" 
+                        required 
+                        min="1" 
+                        max="20"
+                        placeholder="e.g., 12"
+                    >
+                    <small>The topmost vertebra level where surgery begins (1-20). Lower numbers indicate surgery higher up the spine.</small>
+                    <div class="error-message" id="start-error"></div>
+                </div>
+
+                <button type="submit" id="predict-btn" class="btn btn-large">
+                    <span class="btn-text">Predict Kyphosis Risk</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" style="display: none;">
+            <div class="result-card" id="result-card">
+                <div class="result-text" id="result-text">
+                    <!-- Result will be populated by JavaScript -->
+                </div>
+                
+                <div class="confidence-bar">
+                    <div class="confidence-fill" id="confidence-fill"></div>
+                </div>
+                <div class="confidence-text" id="confidence-text">
+                    <!-- Confidence will be populated by JavaScript -->
+                </div>
+                
+                <p style="margin-top: 2rem; color: #ccc; font-size: 0.95rem; line-height: 1.6;">
+                    <strong>Important:</strong> This is a statistical estimate based on a machine learning model 
+                    trained on historical surgical data. It should not be used for actual medical diagnosis or 
+                    treatment decisions. Always consult with qualified healthcare professionals.
+                </p>
+                
+                <button type="button" id="reset-btn" class="btn btn-secondary" style="margin-top: 1rem;">
+                    Make Another Prediction
+                </button>
+            </div>
+        </section>
+
+        <!-- Information Cards -->
+        <div class="two-column" style="margin-top: 3rem;">
+            <section class="card">
+                <h3>Understanding the Parameters</h3>
+                <ul>
+                    <li><strong>Age:</strong> Younger patients may have different healing responses and growth patterns that affect outcomes.</li>
+                    <li><strong>Vertebrae Count:</strong> More extensive surgeries (involving more vertebrae) may have different risk profiles.</li>
+                    <li><strong>Starting Level:</strong> The location where surgery begins can influence biomechanical outcomes.</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h3>Interpreting Results</h3>
+                <ul>
+                    <li><strong>High Confidence (>80%):</strong> Model is very certain about the prediction based on similar cases in training data.</li>
+                    <li><strong>Moderate Confidence (50-80%):</strong> Reasonable certainty, but additional clinical factors should be considered.</li>
+                    <li><strong>Low Confidence (<50%):</strong> Uncertain prediction - clinical expertise is essential for decision-making.</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Sample Cases -->
+        <section class="card">
+            <h3>Try Sample Cases</h3>
+            <p style="color: #ccc; margin-bottom: 1rem;">Click on these examples to quickly test the prediction tool:</p>
+            
+            <div class="tech-grid">
+                <div class="tech-card sample-case" style="cursor: pointer;" 
+                     data-age="71" data-number="3" data-start="5">
+                    <h4 style="color: #87ceeb;">Case 1: Low Risk</h4>
+                    <p>Age: 71 months<br>Vertebrae: 3<br>Start: Level 5</p>
+                </div>
+                
+                <div class="tech-card sample-case" style="cursor: pointer;" 
+                     data-age="158" data-number="3" data-start="14">
+                    <h4 style="color: #87ceeb;">Case 2: Moderate Risk</h4>
+                    <p>Age: 158 months<br>Vertebrae: 3<br>Start: Level 14</p>
+                </div>
+                
+                <div class="tech-card sample-case" style="cursor: pointer;" 
+                     data-age="42" data-number="6" data-start="11">
+                    <h4 style="color: #87ceeb;">Case 3: Higher Risk</h4>
+                    <p>Age: 42 months<br>Vertebrae: 6<br>Start: Level 11</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medical Disclaimer -->
+        <section class="disclaimer">
+            <h3>Medical Disclaimer</h3>
+            <p>
+                This prediction tool is designed for <strong>educational and research purposes only</strong>. 
+                It should never replace professional medical judgment or be used for actual patient care decisions. 
+                The model is trained on historical data and may not account for individual patient factors, 
+                new surgical techniques, or rare conditions.
+            </p>
+        </section>
+    </div>
+
+    <!-- Error Container -->
+    <div id="error-container" style="display: none;"></div>
+    <div id="network-error" style="display: none;"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Page-specific JavaScript for Predict page
+        function initPredictPage() {
+            const form = document.getElementById('prediction-form');
+            const predictBtn = document.getElementById('predict-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const resultsSection = document.getElementById('results-section');
+            const resultCard = document.getElementById('result-card');
+            const resultText = document.getElementById('result-text');
+            
+            // Form submission
+            form.addEventListener('submit', handleFormSubmit);
+            
+            // Reset functionality
+            resetBtn.addEventListener('click', resetForm);
+            
+            // Sample case clicks
+            document.querySelectorAll('.sample-case').forEach(card => {
+                card.addEventListener('click', () => {
+                    const age = card.dataset.age;
+                    const number = card.dataset.number;
+                    const start = card.dataset.start;
+                    
+                    document.getElementById('age').value = age;
+                    document.getElementById('number').value = number;
+                    document.getElementById('start').value = start;
+                    
+                    // Clear any existing errors
+                    clearErrors();
+                });
+            });
+            
+            // Real-time validation
+            addInputValidation();
+            
+            console.log('Predict page initialized');
+        }
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            console.log('Form submitted');
+            
+            // Clear previous errors
+            clearErrors();
+            hideError();
+            
+            // Get form data
+            const formData = {
+                age: parseInt(document.getElementById('age').value),
+                number: parseInt(document.getElementById('number').value),
+                start: parseInt(document.getElementById('start').value)
+            };
+            
+            console.log('Form data:', formData);
+            
+            // Validate input
+            if (!validateFormData(formData)) {
+                console.log('Form validation failed');
+                return;
+            }
+            
+            // Show loading state
+            const resultsSection = document.getElementById('results-section');
+            setButtonLoading(document.getElementById('predict-btn'), true);
+            resultsSection.style.display = 'none';
+            
+            try {
+                // Make prediction
+                console.log('Making prediction...');
+                const result = await makePrediction(formData);
+                console.log('Prediction successful:', result);
+                
+                // Display result
+                displayPredictionResult(result);
+                
+            } catch (error) {
+                console.error('Prediction error:', error);
+                displayError(error.message);
+            } finally {
+                setButtonLoading(document.getElementById('predict-btn'), false);
+            }
+        }
+
+        function validateFormData(data) {
+            let isValid = true;
+            
+            // Age validation
+            const ageError = validateInput(data.age, 1, 250, 'Age');
+            if (ageError) {
+                showFieldError('age', ageError);
+                isValid = false;
+            }
+            
+            // Number validation
+            const numberError = validateInput(data.number, 1, 20, 'Number of vertebrae');
+            if (numberError) {
+                showFieldError('number', numberError);
+                isValid = false;
+            }
+            
+            // Start validation
+            const startError = validateInput(data.start, 1, 20, 'Starting vertebra level');
+            if (startError) {
+                showFieldError('start', startError);
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        function showFieldError(fieldName, message) {
+            const errorElement = document.getElementById(`${fieldName}-error`);
+            const inputElement = document.getElementById(fieldName);
+            
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+            
+            if (inputElement) {
+                inputElement.style.borderColor = '#ff6b6b';
+            }
+        }
+
+        function clearErrors() {
+            ['age', 'number', 'start'].forEach(fieldName => {
+                const errorElement = document.getElementById(`${fieldName}-error`);
+                const inputElement = document.getElementById(fieldName);
+                
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+                
+                if (inputElement) {
+                    inputElement.style.borderColor = '#444';
+                }
+            });
+        }
+
+        function displayPredictionResult(result) {
+            console.log('Displaying prediction result:', result);
+            
+            const { prediction, confidence } = result;
+            const resultsSection = document.getElementById('results-section');
+            const resultCard = document.getElementById('result-card');
+            const resultText = document.getElementById('result-text');
+            
+            console.log('Elements found:', {
+                resultsSection: !!resultsSection,
+                resultCard: !!resultCard,
+                resultText: !!resultText
+            });
+            
+            // Update result text and styling
+            if (prediction === 'present') {
+                resultText.textContent = 'Kyphosis Likely Present';
+                resultCard.className = 'result-card positive';
+            } else {
+                resultText.textContent = 'Kyphosis Likely Absent';
+                resultCard.className = 'result-card negative';
+            }
+            
+            console.log('Updated result text to:', resultText.textContent);
+            console.log('Updated result card class to:', resultCard.className);
+            
+            // Show results section
+            resultsSection.style.display = 'block';
+            console.log('Results section display set to:', resultsSection.style.display);
+            
+            // Animate confidence bar
+            animateConfidenceBar(confidence);
+            
+            // Scroll to results
+            scrollToElement('results-section');
+        }
+
+        function resetForm() {
+            document.getElementById('prediction-form').reset();
+            document.getElementById('results-section').style.display = 'none';
+            clearErrors();
+            hideError();
+            
+            // Focus on first input
+            document.getElementById('age').focus();
+        }
+
+        function addInputValidation() {
+            // Age input validation
+            document.getElementById('age').addEventListener('input', function() {
+                validateSingleInput(this, 1, 250, 'age');
+            });
+            
+            // Number input validation
+            document.getElementById('number').addEventListener('input', function() {
+                validateSingleInput(this, 1, 20, 'number');
+            });
+            
+            // Start input validation
+            document.getElementById('start').addEventListener('input', function() {
+                validateSingleInput(this, 1, 20, 'start');
+            });
+        }
+
+        function validateSingleInput(input, min, max, fieldName) {
+            const value = parseInt(input.value);
+            const errorElement = document.getElementById(`${fieldName}-error`);
+            
+            if (input.value && (isNaN(value) || value < min || value > max)) {
+                input.style.borderColor = '#ff6b6b';
+                if (errorElement) {
+                    errorElement.textContent = `Must be between ${min} and ${max}`;
+                    errorElement.style.display = 'block';
+                }
+            } else {
+                input.style.borderColor = '#444';
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
