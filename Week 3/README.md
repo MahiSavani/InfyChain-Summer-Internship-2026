@@ -2,7 +2,7 @@
 
 **Project Title:** Machine Learning Fundamentals: Feature Engineering, Algorithm Exploration & Predictive Modelling
 
-## 📋 Overview
+##  Overview
 Week 3 marked the transition into machine learning — engineering usable features
 from raw data, exploring both supervised and unsupervised algorithms, and building
 the first evaluated prediction models.
