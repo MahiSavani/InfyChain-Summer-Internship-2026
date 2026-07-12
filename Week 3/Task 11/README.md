@@ -9,7 +9,7 @@ End-to-end data science project that trains a machine learning model to predict 
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 .
@@ -26,7 +26,7 @@ End-to-end data science project that trains a machine learning model to predict 
 
 ---
 
-## 🧠 Workflow
+##  Workflow
 
 **1. Data Preprocessing**
 - Combined `train.csv` and `test.csv` so cleaning/encoding stays consistent across both.
@@ -56,24 +56,6 @@ End-to-end data science project that trains a machine learning model to predict 
 - `app.py` is a Streamlit UI where a user enters the key house details (quality, size, rooms,
   garage, age, neighborhood, etc.); everything else is auto-filled from `feature_defaults.pkl`
   before the model predicts a price.
-
----
-
-## ⚙️ Setup
-
-```bash
-# 1. Create/activate an environment, then install dependencies
-pip install pandas numpy scikit-learn streamlit
-
-# 2. (Optional) Retrain the model from scratch
-#    Requires train.csv, test.csv (Kaggle Ames Housing files) in the same folder
-python train_and_save_model.py
-
-# 3. Launch the web app
-streamlit run app.py
-```
-
-The app will open at `http://localhost:8501`.
 
 ---
 
