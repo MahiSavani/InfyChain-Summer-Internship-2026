@@ -3,12 +3,12 @@
 **Intern:** Mahi Savani (24AIML059)
 **Project Title:** Data Cleaning and Visualization using various datasets
 
-## 📋 Overview
+##  Overview
 Week 1 focused on the fundamentals of the data science workflow: cleaning messy
 real-world data and communicating patterns through visualization, across four
 different Kaggle datasets.
 
-## 📁 Tasks
+##  Tasks
 
 | Task | Dataset | Focus |
 |------|---------|-------|
@@ -38,13 +38,13 @@ different Kaggle datasets.
 - Explored sales trends across categories, regions, and time periods
 - Generated summary statistics and visualizations for key metrics
 
-## 🧰 Tools & Libraries
+##  Tools & Libraries
 Python, Pandas, NumPy, Matplotlib, Seaborn, Google Colab / Jupyter Notebook, GitHub
 
-## 🔭 Plans for Next Week
+##  Plans for Next Week
 Introduction to Power BI (Dashboard creation), Web scraping, Insight & Trends analysis
 
-## 📚 References
+##  References
 1. Python, Pandas & NumPy Documentation
 2. Seaborn and Matplotlib Library Documentation
 3. Kaggle Datasets (Titanic, Iris, Netflix, Sales/Superstore)
