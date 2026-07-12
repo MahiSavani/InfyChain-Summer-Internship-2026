@@ -11,9 +11,9 @@ fresh dataset from the web via scraping.
 
 | Task | Focus |
 |------|-------|
-| [Task 5](../Task-5) | Power BI — Interactive Dashboard Creation |
-| [Task 6](../Task-6) | Web Scraping — Data Collection from Online Sources |
-| [Task 7](../Task-7) | Insights & Trends Analysis on Scraped Data |
+| [Task 5](https://github.com/MahiSavani/InfyChain-Summer-Internship-2026/tree/main/Week-2/Task-5) | Power BI — Interactive Dashboard Creation |
+| [Task 6](https://github.com/MahiSavani/InfyChain-Summer-Internship-2026/tree/main/Week-2/Task-6) | Web Scraping — Data Collection from Online Sources |
+| [Task 7](https://github.com/MahiSavani/InfyChain-Summer-Internship-2026/tree/main/Week-2/Task-7) | Insights & Trends Analysis on Scraped Data |
 
 ### Task 5 — Introduction to Power BI: Interactive Dashboard Creation
 - Imported and modeled datasets in Power BI
