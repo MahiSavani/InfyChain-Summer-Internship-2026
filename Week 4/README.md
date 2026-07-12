@@ -11,7 +11,7 @@ trained model deployed as a live API.
 
 | Task | Focus |
 |------|-------|
-| [Task 12](./Task-12) | End-to-End ML Project on Real-World Dataset — Spinal Kyphosis Detector |
+| [Task 12](https://github.com/MahiSavani/InfyChain-Summer-Internship-2026/tree/main/Week%204/Task%2012) | End-to-End ML Project on Real-World Dataset — Spinal Kyphosis Detector |
 
 ### Task 12 — End-to-End ML Project: Spinal Kyphosis Detector
 - Built a full-stack web app predicting **Kyphosis** (a spinal condition) from
