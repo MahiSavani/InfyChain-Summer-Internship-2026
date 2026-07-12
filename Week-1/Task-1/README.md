@@ -1,6 +1,5 @@
 # Task 1 — Titanic Dataset: Data Cleaning & Preprocessing
 
-**Week:** 1
 **Dataset:** [Titanic Dataset](https://www.kaggle.com/datasets/yasserh/titanic-dataset) (891 passenger records, Kaggle)
 **Category:** Data Cleaning & Preprocessing
 
