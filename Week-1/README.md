@@ -11,7 +11,7 @@ different Kaggle datasets.
 
 | Task | Dataset | Focus |
 |------|---------|-------|
-| [Task 1](../Task-1) | Titanic | Data Cleaning & Preprocessing |
+| [Task 1](https://github.com/MahiSavani/InfyChain-Summer-Internship-2026/tree/main/Week-1/Task-1) | Titanic | Data Cleaning & Preprocessing |
 | [Task 2](../Task-2) | Iris | Data Visualization |
 | [Task 3](../Task-3) | Netflix | Exploratory Data Analysis (EDA) |
 | [Task 4](../Task-4) | Sales Dataset | Data Cleaning & Basic EDA |
